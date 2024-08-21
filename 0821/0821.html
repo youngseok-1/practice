@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이름 입력 받기</title>
+</head>
+<body>
+    <button id="startButton">이름 입력하기</button>
+
+    <script>
+        document.getElementById('startButton').onclick = () => {
+            const userName = window.prompt('이름을 입력하세요');
+            
+            if (userName) {
+                window.alert(`환영합니다, ${userName}!`);
+                const newWindow = window.open('', 'newWindow', 'width=600,height=400');
+                newWindow.document.write(`<h1>환영합니다, ${userName}님!</h1>`);
+            } else {
+                window.alert('이름을 입력하지 않으셨습니다');
+            }
+        };
+    </script>
+</body>
+</html>
