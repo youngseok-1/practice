@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: flex-start; /* 요소들을 왼쪽으로 정렬하고 간격 최소화 */
+            align-items: center;
+            margin-top: 20px;
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 10px; /* 아이템 간의 간격 조정 */
+        }
+        .item:last-child {
+            margin-right: 0; /* 마지막 아이템의 오른쪽 여백 제거 */
+        }
+        .area {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #FFB9B9;
+            margin-bottom: 8px;
+        }
+        .string {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19.36px;
+            text-align: center;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <div class="area"></div>
+            <p class="string">메일</p>
+        </div>
+        <div class="item">
+            <div class="area"></div>
+            <p class="string">카페</p>
+        </div>
+        <div class="item">
+            <div class="area"></div>
+            <p class="string">블로그</p>
+        </div>
+        <div class="item">
+            <div class="area"></div>
+            <p class="string">지도</p>
+        </div>
+    </div>
+</body>
+</html>
