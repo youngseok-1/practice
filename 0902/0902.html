@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>0902</title>
+    <style>
+        .lightgray { background-color: lightgray; }
+    </style>
+</head>
+<body>
+    <p>사용자가 이름을 입력하는 input 필드에서 focus 이벤트가 발생할 때, 
+    해당 필드의 배경색이 lightgray로 변경되고, 
+    blur 이벤트가 발생할 때 배경색이 원래대로 돌아오도록 코드를 수정하려고 합니다. 
+    아래의 코드를 완성해보세요.
+    </p>
+    <input type="text" value="테스트" id="username">
+    <script>
+        const $username = document.getElementById('username');
+
+        // focus 이벤트가 발생할 때, lightgray 클래스를 추가하세요
+        $username.onfocus = (e) => {
+            // 여기에 코드를 작성하세요
+        };
+
+        // blur 이벤트가 발생할 때, lightgray 클래스를 제거하세요
+        $username.onblur = (e) => {
+            // 여기에 코드를 작성하세요
+        };
+    </script>
+</body>
+</html>
