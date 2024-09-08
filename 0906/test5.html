@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test5</title>
+    <style>
+        #timer {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>1번</h1>
+    <p>시간이 10초인 타이머를 만드시오 (setInterval, clearInterval, if문 사용)</p>
+    <div id="timer">10</div>
+    <button id="start">시작</button>
+
+    <script>
+        let timeLeft = 10;
+        let timer;
+
+        document.getElementById('start').onclick = function () {
+            timeLeft = 10;
+            document.getElementById('timer').innerText = timeLeft;
+
+            timer = setInterval(function () {
+                timeLeft--;
+                document.getElementById('timer').innerText = timeLeft;
+
+                if (timeLeft === 0) {
+                    clearInterval(timer);
+                    alert("타이머가 끝났습니다!");
+                }
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

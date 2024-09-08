@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test6</title>
+    <style>
+        #output {
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            margin-top: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>입력한 값이 확인을 클릭하면 화면에 나오게 만드시오.</p>
+
+    <div id="output"></div>
+    <input type="text" id="inputText" placeholder="값을 입력하세요">
+    <button id="submit">확인</button>
+
+    <script>
+        document.getElementById('submit').onclick = function() {
+            const input = document.getElementById('inputText').value;
+            document.getElementById('output').innerText = input;
+        };
+    </script>
+</body>
+</html>
