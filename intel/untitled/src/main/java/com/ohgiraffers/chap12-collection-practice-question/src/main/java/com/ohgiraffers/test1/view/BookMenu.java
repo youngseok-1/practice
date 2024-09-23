@@ -3,6 +3,9 @@ package com.ohgiraffers.test1.view;
 import com.ohgiraffers.test1.controller.BookManager;
 import com.ohgiraffers.test1.model.dto.BookDTO;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class BookMenu {
@@ -31,20 +34,18 @@ public class BookMenu {
                     break;
                 case 2 :
                     System.out.println("정렬방식을 선택해주세요 (1. 오름차순, 2. 내림차순)");
-                    int num = sc.nextInt();
-                    if (num == 1) {
-                        System.out.println("오름차순을 진행합니다.");
-                    } else if (num == 2) {
-                        System.out.println("내림차순을 진행합니다.");
-                    } else {
-                        System.out.println("번호를 잘못입력하였습니다.");
+                    int sortChoice = sc.nextInt();
+                    List<BookDTO> sortedBooks = bm.sortedBookList(sortChoice);
+                    for (BookDTO book : sortedBooks) {
+                        System.out.println(book);
                     }
                     break;
                 case 3 :
                    deleteBook();
                    break;
                 case 4 :
-                    System.out.println("검색하고 싶은 도서 제목을 적어주세요.");
+                    searchBook();
+                    break;
                 case 5 :
                     displayAll();
                     break;
@@ -93,6 +94,43 @@ public class BookMenu {
                 System.out.println(book);
             }
         }
+
     }
-}
+
+    public ArrayList<BookDTO> sortedBookList(int select) {
+        ArrayList<BookDTO> sortedList = new ArrayList<>(bm.getBookList()); // 기존 리스트 복사
+
+        // select 값에 따라 오름차순 또는 내림차순 정렬
+        if (select == 1) {
+            // 오름차순 정렬
+            Collections.sort(sortedList, new com.ohgiraffers.test1.sort.AscCategory());
+            System.out.println("오름차순으로 정렬되었습니다.");
+        } else if (select == 2) {
+            // 내림차순 정렬
+            Collections.sort(sortedList, new com.ohgiraffers.test1.sort.DescCategory());
+            System.out.println("내림차순으로 정렬되었습니다.");
+        } else {
+            System.out.println("잘못된 입력입니다.");
+        }
+
+        return sortedList; // 정렬된 리스트 반환
+    }
+    private void searchBook() {
+        System.out.print("검색할 도서 제목: ");
+        String title = sc.nextLine();
+
+        int index = bm.searchBook(title);
+
+        if (index == -1) {
+            System.out.println("조회한 도서가 존재하지 않습니다.");
+        } else {
+            printBook(index);
+        }
+    }
+
+    private void printBook(int index) {
+        System.out.println(bm.getBookList().get(index)); // 검색된 도서 정보 출력
+    }
+     }
+
 
