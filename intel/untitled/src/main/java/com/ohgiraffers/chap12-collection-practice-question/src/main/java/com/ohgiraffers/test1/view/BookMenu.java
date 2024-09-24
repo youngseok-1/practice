@@ -62,7 +62,7 @@ public class BookMenu {
 
     private void addBook() {
         System.out.println("=== 새 도서 추가 ===");
-        System.out.println("도서 번호는 1부터 입력됩니다.");
+        System.out.println("도서 번호는 자동으로 정렬됩니다..");
         System.out.print("도서 카테고리(1:인문, 2:자연과학, 3:의료, 4:기타): ");
         int category = sc.nextInt();
         sc.nextLine(); // 엔터 (개행)
